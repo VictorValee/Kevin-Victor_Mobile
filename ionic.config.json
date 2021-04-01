@@ -1,0 +1,7 @@
+{
+  "name": "Mobile_kebin_lokoka",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
