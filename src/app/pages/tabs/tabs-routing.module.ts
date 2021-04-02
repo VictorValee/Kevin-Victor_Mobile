@@ -14,7 +14,36 @@ const routes: Routes = [{
                 loadChildren: '../home/home.module#HomePageModule'
             }],
             data: { json: false },
-        }, {
+        },
+        {
+            path: 'profil',
+            children: [{
+                path: '',
+            loadChildren: () => import ('../profil/profil.module').then(m => m.ProfilPageModule)
+            }],
+        }, 
+        {
+            path: 'favoris',
+            children: [{
+                path: '',
+            loadChildren: () => import ('../favoris/favoris.module').then(m => m.FavorisPageModule)
+            }],
+        }, 
+        {
+            path: 'frigo',
+            children: [{
+                path: '',
+            loadChildren: () => import ('../frigo/frigo.module').then(m => m.FrigoPageModule)
+            }],
+        }, 
+        {
+            path: 'panier',
+            children: [{
+                path: '',
+            loadChildren: () => import ('../panier/panier.module').then(m => m. PanierPageModule)
+            }],
+        },
+        {
             path: 'homeJson',
             children: [{
                 path: '',
@@ -27,7 +56,29 @@ const routes: Routes = [{
             path: '',
             redirectTo: '/tabs/home',
             pathMatch: 'full'
-        }
+        },
+        {
+            path: '',
+            redirectTo: '/tabs/profil',
+            pathMatch: 'full'
+        },
+
+        {
+            path: '',
+            redirectTo: '/tabs/panier',
+            pathMatch: 'full'
+        },
+
+        {
+            path: '',
+            redirectTo: '/tabs/favoris',
+            pathMatch: 'full'
+        },
+        {
+            path: '',
+            redirectTo: '/tabs/frigo',
+            pathMatch: 'full'
+        },
     ]
 }];
 
