@@ -1,26 +1,31 @@
-<ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title>
-            Blank
-        </ion-title>
-    </ion-toolbar>
-</ion-header>
+
 <ion-tabs>
     <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="home">
-            <ion-icon name="basketball-outline"></ion-icon>
-            <ion-label>Actu.</ion-label>
-            <ion-badge>10</ion-badge>
-        </ion-tab-button>
-
-        <ion-tab-button tab="homeJson">
-            <ion-icon src='/assets/icon/Asset 36.svg'></ion-icon>
-            <ion-label>Speakers</ion-label>
-        </ion-tab-button>
 
         <ion-tab-button tab="home">
+            <ion-icon name="home-outline"></ion-icon>
+            <ion-label>Accueil</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="frigo">
+            <ion-icon name="file-tray-stacked-outline"></ion-icon>
+            <ion-label>Frigo</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="favoris">
+            <ion-icon name="heart-outline"></ion-icon>
+            <ion-label>Favoris</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="panier">
+            <ion-icon name="cart-outline"></ion-icon>
+            <ion-label>Panier</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="profil">
             <ion-icon name="person-outline"></ion-icon>
             <ion-label>Profil</ion-label>
         </ion-tab-button>
+        
     </ion-tab-bar>
 </ion-tabs>

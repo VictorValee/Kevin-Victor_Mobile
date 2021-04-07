@@ -35,6 +35,18 @@ const routes: Routes = [{
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   },
+  {
+    path: 'favoris',
+    loadChildren: () => import('./pages/favoris/favoris.module').then( m => m.FavorisPageModule)
+  },
+  {
+    path: 'panier',
+    loadChildren: () => import('./pages/panier/panier.module').then( m => m.PanierPageModule)
+  },
+  {
+    path: 'frigo',
+    loadChildren: () => import('./pages/frigo/frigo.module').then( m => m.FrigoPageModule)
+  },
 ];
 
 @NgModule({
