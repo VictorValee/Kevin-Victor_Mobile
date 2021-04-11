@@ -1,3 +1,4 @@
+import { DetailsPage } from './../details/details.page';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -6,6 +7,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { FeedsService } from '../../services/feeds.service';
 import { ArticleFeed } from '../../interfaces/article-feed';
 import { Recette } from '../../interfaces/recette';
+import { NavController } from '@ionic/angular';
 
 @Component({
     selector: 'app-home',
@@ -31,6 +33,7 @@ export class HomePage implements OnInit {
 
         constructor(private router: Router, 
             private route: ActivatedRoute, 
+            public navCtrl : NavController
             /*private feed: FeedsService*/) {
         
             //On simule le fait que les recettes provienent d'une base de données
@@ -52,10 +55,15 @@ export class HomePage implements OnInit {
                 picture : [
                     'assets/img/recettes/rts/rt1.jpg'
                 ]}
-            ]
+            ]}
 
+            //Montre les détail de l'article
+            showDetails(recette :Recette) : void{
 
+                
             }
+
+
 /*
         ionViewWillEnter() {
         console.log("ionViewWillEnter");
