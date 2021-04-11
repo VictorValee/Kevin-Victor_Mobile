@@ -1,20 +1,9 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title>
-            Accueil
-        </ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>Accueil</ion-title>
+  </ion-toolbar>
 </ion-header>
-<ion-tabs>
-    
-<ion-content [fullscreen]="true">
-    <ion-card *ngFor="let feed of feeds">
-        <img [src]="(feed.media === undefined)?randomPicture():feed.media" />
-        <ion-card-header>
-            <ion-card-subtitle>{{ feed.creator }}</ion-card-subtitle>
-            <ion-card-title>{{ feed.title }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content [innerHTML]="feed.description">
-        </ion-card-content>
-    </ion-card>
+
+<ion-content>
+
 </ion-content>
