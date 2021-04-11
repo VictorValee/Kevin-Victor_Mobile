@@ -33,7 +33,6 @@ export class HomePage implements OnInit {
 
         constructor(private router: Router, 
             private route: ActivatedRoute, 
-            public navCtrl : NavController
             /*private feed: FeedsService*/) {
         
             //On simule le fait que les recettes provienent d'une base de données
@@ -59,8 +58,8 @@ export class HomePage implements OnInit {
 
             //Montre les détail de l'article
             showDetails(recette :Recette) : void{
+                //this.router.navigateByUrl('/details');
 
-                
             }
 
 

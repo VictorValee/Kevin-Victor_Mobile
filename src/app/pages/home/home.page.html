@@ -7,12 +7,10 @@
 <ion-content padding>
   
   <ion-list>
-      <button ion-item *ngFor="let recette of Recettes">
-        <ion-thumbnail item-start>
+      <button (click)="showDetails(recette)" ion-item *ngFor="let recette of Recettes">
           <img [src]="recette.picture[0]">
-        </ion-thumbnail>
         <h2>{{recette.title}}</h2>
-        <p>{{recette.description}}</p>
+        <p>{{recette.category}}</p>
         <p>
           <span *ngIf="recette.averageStar>=1">
             <ion-icon class="iconYellow" name="star"></ion-icon>          
