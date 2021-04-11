@@ -60,7 +60,7 @@ export class LoginPage implements OnInit {
 
     async loginForm() {
         const load = await this.loading.create({
-            message: 'Please wait...',
+            message: 'Connexion en cours...',
         });
         await load.present();
         this.auth.login(this.email, this.pass).then(async(user: any) => {

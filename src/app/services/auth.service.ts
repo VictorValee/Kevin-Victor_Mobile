@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { UserRegister } from '../interfaces/user-register';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
 
     url: string = 'http://cda.eu-4.evennode.com/api'; // aaaaaaa@aaaaaaa.fr
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private _router :Router) {}
 
     login(email: string, password: string) {
         return new Promise((resolve, rejects) => {
@@ -27,6 +28,13 @@ export class AuthService {
                 (!data.success) ? rejects(data.message): resolve(data);
             });
         });
+    }
+
+    logout(){
+        //Supprime le token
+        localStorage.removeItem('token');
+        //Vers la page Login
+        this._router.navigate(['/login']);
     }
 
     getProfile() {

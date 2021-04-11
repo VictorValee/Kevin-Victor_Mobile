@@ -1,9 +1,39 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>Accueil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  
+  <ion-list>
+      <button ion-item *ngFor="let recette of Recettes">
+        <ion-thumbnail item-start>
+          <img [src]="recette.picture[0]">
+        </ion-thumbnail>
+        <h2>{{recette.title}}</h2>
+        <p>{{recette.description}}</p>
+        <p>
+          <span *ngIf="recette.averageStar>=1">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
 
+          <span *ngIf="recette.averageStar>=2">
+            <ion-icon class="iconYellow"name="star"></ion-icon>          
+          </span>
+
+          <span *ngIf="recette.averageStar>=3">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
+
+          <span *ngIf="recette.averageStar>=4">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
+
+          <span *ngIf="recette.averageStar>=5">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
+        </p>
+      </button>
+  </ion-list>
 </ion-content>

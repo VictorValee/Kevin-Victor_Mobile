@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 import { FeedsService } from '../../services/feeds.service';
 import { ArticleFeed } from '../../interfaces/article-feed';
+import { Recette } from '../../interfaces/recette';
 
 @Component({
     selector: 'app-home',
@@ -13,6 +14,10 @@ import { ArticleFeed } from '../../interfaces/article-feed';
 })
 export class HomePage implements OnInit {
 
+    Recettes:any [];
+    Actus:any[];
+
+    /*
     feeds: ArticleFeed[];
 
     pictures: string[] = [
@@ -22,9 +27,36 @@ export class HomePage implements OnInit {
         "https://static.lexpress.fr/medias_9606/w_1000,h_563,c_fill,g_north/v1402563434/lebron-james-des-miami-heat-et-boris-diaw-des-san-antonio-spurs-a-la-lutte-lors-du-match-2-de-la-finale-de-nba-le-8-juin-2014-a-san-antonio-au-texas_4918711.jpg",
         "http://www.slate.fr/sites/default/files/styles/1200x680/public/parker_0.jpg"
     ]
+    */
 
-        constructor(private router: Router, private route: ActivatedRoute, private feed: FeedsService) {}
+        constructor(private router: Router, 
+            private route: ActivatedRoute, 
+            /*private feed: FeedsService*/) {
+        
+            //On simule le fait que les recettes provienent d'une base de données
+            this.Recettes=[{
+                title : "L'omelette de la mère",
+                description :"Omelette façon mère Poulard, spécialité du mont st Michel omelette légère et originale, facile et rapide, bien mousseuse.",
+                category : "Oeuf",
+                createAt : new Date(),
+                averageStar : 4, 
+                picture : [
+                    'assets/img/recettes/oeufs/oeuf1.jpg'
+                ]}
+                ,{
+                title : "Poêlée d'épinards frais au beurre",
+                description :"Découvrez notre recette facile et rapide de Poêlée d'épinards frais au beurre",
+                category : "Recette traditionnelle",
+                createAt : new Date(),
+                averageStar : 5, 
+                picture : [
+                    'assets/img/recettes/rts/rt1.jpg'
+                ]}
+            ]
 
+
+            }
+/*
         ionViewWillEnter() {
         console.log("ionViewWillEnter");
 
@@ -35,15 +67,17 @@ export class HomePage implements OnInit {
         });
 
     }
+    */
 
         async ngOnInit() {
-        this.feeds = await this.feed.requestByUrlTrashTalk()
+        /*this.feeds = await this.feed.requestByUrlTrashTalk()*/
     }
-
+/*
         randomPicture() {
         let min = Math.ceil(0);
         let max = Math.floor(this.pictures.length);
         return this.pictures[Math.floor(Math.random() * (max - min)) + min];
     }
+    */
 
 }

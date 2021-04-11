@@ -1,12 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-      <ion-title>
+    <ion-toolbar color="primary">
+        <ion-title>
           Profil
       </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-button expand="full" color="danger">Se déconnecter</ion-button>
-    <ion-button  expand="full" color="primary">Voir mon profil</ion-button>
+    <ion-button (click)="logout()" expand="full" color="danger">Déconnexion</ion-button>
 </ion-content>
