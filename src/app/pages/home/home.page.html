@@ -11,6 +11,7 @@
         <ion-avatar slot="start">
           <img [src]="recette.picture[0]">
         </ion-avatar>
+        <ion-label>
         <h2>{{recette.title}}</h2>
         <p>{{recette.category}}</p>
         <p>
@@ -34,6 +35,7 @@
             <ion-icon class="iconYellow" name="star"></ion-icon>          
           </span>
         </p>
+      </ion-label>
       </ion-item>
   </ion-list>
 </ion-content>
