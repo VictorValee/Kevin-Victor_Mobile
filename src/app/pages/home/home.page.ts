@@ -17,7 +17,6 @@ import { NavController } from '@ionic/angular';
 export class HomePage implements OnInit {
 
     Recettes:any [];
-    Actus:any[];
 
     /*
     feeds: ArticleFeed[];
@@ -33,7 +32,8 @@ export class HomePage implements OnInit {
 
         constructor(private router: Router, 
             private route: ActivatedRoute, 
-            /*private feed: FeedsService*/) {
+            /*private feed: FeedsService*/
+            public navCtrl : NavController) {
         
             //On simule le fait que les recettes provienent d'une base de données
             this.Recettes=[{
@@ -56,12 +56,12 @@ export class HomePage implements OnInit {
                 ]}
             ]}
 
-            //Montre les détails de la recette
-            showDetails(recette :Recette) : void{
-                this.router.navigateByUrl('/details'),{
-                    queryParams: recette,
-                };
+           
 
+            
+            //Montre les détails de la recette
+            showDetails(recette :any) : void{
+                this.router.navigate(['details',{data:recette}])
             }
 
 

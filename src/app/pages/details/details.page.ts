@@ -4,10 +4,16 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-details',
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
+
 })
 export class DetailsPage implements OnInit {
 
-  constructor() { }
+  DetailsRecettes:any;
+
+
+  constructor() {
+   }
+
 
   ngOnInit() {
   }
