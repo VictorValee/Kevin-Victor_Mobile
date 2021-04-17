@@ -44,6 +44,13 @@ const routes: Routes = [{
             }],
         },
         {
+            path: 'details',
+            children: [{
+                path: '',
+            loadChildren: () => import ('../details/details.module').then(m => m. DetailsPageModule)
+            }],
+        },
+        {
             path: 'homeJson',
             children: [{
                 path: '',
@@ -77,6 +84,11 @@ const routes: Routes = [{
         {
             path: '',
             redirectTo: '/tabs/frigo',
+            pathMatch: 'full'
+        },
+        {
+            path: '',
+            redirectTo: '/tabs/details',
             pathMatch: 'full'
         },
     ]

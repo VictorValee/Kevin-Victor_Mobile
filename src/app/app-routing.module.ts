@@ -47,6 +47,10 @@ const routes: Routes = [{
     path: 'frigo',
     loadChildren: () => import('./pages/frigo/frigo.module').then( m => m.FrigoPageModule)
   },
+  {
+    path: 'details',
+    loadChildren: () => import('./pages/details/details.module').then( m => m.DetailsPageModule)
+  },
 ];
 
 @NgModule({

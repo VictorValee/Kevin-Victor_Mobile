@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-profil',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilPage implements OnInit {
 
-  constructor() { }
+  constructor(        
+    private auth: AuthService,
+    ) { }
 
   ngOnInit() {
   }
+
+  logout(){
+
+    //Retourne la fonction logout
+    return this.auth.logout();
+    
+  }
+
+  checkprofil(){
+    //Affiche les informations du profil
+
+  }
+
 
 }

@@ -1,9 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
     <ion-title>Frigo</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content padding>
+  
+  <ion-list>
+      <button ion-item *ngFor="let ingredient of Ingredients">
+          <img [src]="ingredient.picture[0]">
+        <h2>{{ingredient.title}}</h2>
+        <p>{{ingredient.category}}</p>
+        <p>
+        </p>
+      </button>
+  </ion-list>
 </ion-content>
+

@@ -1,20 +1,37 @@
-<ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title>
-            Accueil
-        </ion-title>
-    </ion-toolbar>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Accueil</ion-title>
+  </ion-toolbar>
 </ion-header>
-<ion-tabs>
 
-<ion-content [fullscreen]="true">
-    <ion-card *ngFor="let feed of feeds">
-        <img [src]="(feed.media === undefined)?randomPicture():feed.media" />
-        <ion-card-header>
-            <ion-card-subtitle>{{ feed.creator }}</ion-card-subtitle>
-            <ion-card-title>{{ feed.title }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content [innerHTML]="feed.description">
-        </ion-card-content>
-    </ion-card>
+<ion-content padding>
+  
+  <ion-list>
+      <button (click)="showDetails(recette)" ion-item *ngFor="let recette of Recettes">
+          <img [src]="recette.picture[0]">
+        <h2>{{recette.title}}</h2>
+        <p>{{recette.category}}</p>
+        <p>
+          <span *ngIf="recette.averageStar>=1">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
+
+          <span *ngIf="recette.averageStar>=2">
+            <ion-icon class="iconYellow"name="star"></ion-icon>          
+          </span>
+
+          <span *ngIf="recette.averageStar>=3">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
+
+          <span *ngIf="recette.averageStar>=4">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
+
+          <span *ngIf="recette.averageStar>=5">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
+        </p>
+      </button>
+  </ion-list>
 </ion-content>
