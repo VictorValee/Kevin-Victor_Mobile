@@ -58,7 +58,9 @@ export class HomePage implements OnInit {
 
             //Montre les détails de la recette
             showDetails(recette :Recette) : void{
-                //this.router.navigateByUrl('/details');
+                this.router.navigateByUrl('/details'),{
+                    queryParams: recette,
+                };
 
             }
 
