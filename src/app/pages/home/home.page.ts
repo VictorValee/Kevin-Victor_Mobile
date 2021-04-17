@@ -32,8 +32,7 @@ export class HomePage implements OnInit {
 
         constructor(private router: Router, 
             private route: ActivatedRoute, 
-            /*private feed: FeedsService*/
-            public navCtrl : NavController) {
+            /*private feed: FeedsService*/) {
         
             //On simule le fait que les recettes provienent d'une base de données
             this.Recettes=[{
@@ -56,12 +55,14 @@ export class HomePage implements OnInit {
                 ]}
             ]}
 
-           
-
             
+
             //Montre les détails de la recette
-            showDetails(recette :any) : void{
-                this.router.navigate(['details',{data:recette}])
+            showDetails(recette){
+                console.log(recette)
+                this.router.navigate(['details',
+                {queryParams:recette},
+            ]);
             }
 
 

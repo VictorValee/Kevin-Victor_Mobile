@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AbstractType, Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -8,14 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsPage implements OnInit {
 
-  DetailsRecettes:any;
+details:any=[];
 
+  constructor(public route:ActivatedRoute) {
+    this.route.queryParams.subscribe((data)=>{
+      console.log(data);
+      this.details = data;
 
-  constructor() {
+    })
    }
+
+   
 
 
   ngOnInit() {
+  
   }
 
 }
