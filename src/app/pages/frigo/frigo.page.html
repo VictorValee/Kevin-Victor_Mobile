@@ -1,3 +1,4 @@
+  
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Frigo</ion-title>
@@ -8,13 +9,14 @@
 <ion-content padding>
   
   <ion-list>
-      <button ion-item *ngFor="let ingredient of Ingredients">
+    <ion-item ion-item *ngFor="let ingredient of Ingredients">
+        <ion-avatar slot="start">
           <img [src]="ingredient.picture[0]">
+        </ion-avatar>
+        <ion-label>
         <h2>{{ingredient.title}}</h2>
         <p>{{ingredient.category}}</p>
-        <p>
-        </p>
-      </button>
+      </ion-label>
+    </ion-item>
   </ion-list>
 </ion-content>
-

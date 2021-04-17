@@ -56,7 +56,7 @@ export class HomePage implements OnInit {
                 ]}
             ]}
 
-            //Montre les détail de l'article
+            //Montre les détails de la recette
             showDetails(recette :Recette) : void{
                 //this.router.navigateByUrl('/details');
 
