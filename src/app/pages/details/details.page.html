@@ -10,10 +10,35 @@
 <ion-content>
 
   <ion-card>
-    <img [src]="details.picture[0]">
+    <img [src]="details.picture">
     <ion-card-header>
       <ion-card-title>{{details.title}}</ion-card-title>
       <ion-card-subtitle>{{details.category}}</ion-card-subtitle>
+
+      <p>
+        <span *ngIf="details.averageStar>=1">
+          <ion-icon class="iconYellow" name="star"></ion-icon>          
+        </span>
+
+        <span *ngIf="details.averageStar>=2">
+          <ion-icon class="iconYellow"name="star"></ion-icon>          
+        </span>
+
+        <span *ngIf="details.averageStar>=3">
+          <ion-icon class="iconYellow" name="star"></ion-icon>          
+        </span>
+
+        <span *ngIf="details.averageStar>=4">
+          <ion-icon class="iconYellow" name="star"></ion-icon>          
+        </span>
+
+        <span *ngIf="details.averageStar>=5">
+          <ion-icon class="iconYellow" name="star"></ion-icon>          
+        </span>
+      </p>
+      <ion-button color="primary" >
+        Ajouter aux Favoris
+      </ion-button>
 
     </ion-card-header>
   

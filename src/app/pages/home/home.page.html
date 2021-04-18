@@ -9,7 +9,7 @@
   <ion-list>
       <ion-item ion-item *ngFor="let recette of Recettes">
         <ion-avatar slot="start">
-          <img [src]="recette.picture[0]">
+          <img [src]="recette.picture">
         </ion-avatar>
         <ion-label>
         <h2>{{recette.title}}</h2>
