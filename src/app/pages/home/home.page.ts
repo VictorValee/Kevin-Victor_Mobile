@@ -36,6 +36,7 @@ export class HomePage implements OnInit {
         
             //On simule le fait que les recettes provienent d'une base de données
             this.Recettes=[{
+                id :1,
                 title : "L'omelette de la mère",
                 description :"Omelette façon mère Poulard, spécialité du mont st Michel omelette légère et originale, facile et rapide, bien mousseuse.",
                 category : "Oeuf",
@@ -43,6 +44,7 @@ export class HomePage implements OnInit {
                 averageStar : 4, 
                 picture : 'assets/img/recettes/oeuf1.jpg'}
                 ,{
+                id :2,
                 title : "Poêlée d'épinards frais au beurre",
                 description :"Découvrez notre recette facile et rapide de poêlée d'épinards frais au beurre",
                 category : "Recette traditionnelle",
@@ -51,6 +53,7 @@ export class HomePage implements OnInit {
                 picture : 'assets/img/recettes/rt1.jpg'
                 }
                  ,{
+                id :3,
                 title : "Poulet Yassa",
                 description :"Le yassa est un plat sénégalais à base d'oignons frits et de riz et qui peut être accompagné de viande marinée dans le citron puis frite ou braisée, de poulet ou de poisson. ",
                 category : "Poulet",
@@ -59,6 +62,7 @@ export class HomePage implements OnInit {
                 picture : 'assets/img/recettes/yassa.jpg'
                 }
                  ,{
+                id :4,
                 title : "Crème au chocolat light",
                 description :"Une recette de crème au chocolat maison, bien meilleur et saine que celles des grandes surfaces.",
                 category : "Crème",
@@ -67,6 +71,7 @@ export class HomePage implements OnInit {
                 picture : 'assets/img/recettes/chocolat.jpg'
                 }
                  ,{
+                id :5,
                 title : "Potatoes maison aux épices",
                 description :"Découvrez notre recette facile et rapide de potatoes maison aux épice",
                 category : "Pomme de terre",
