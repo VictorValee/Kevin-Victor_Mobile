@@ -60,9 +60,9 @@ export class HomePage implements OnInit {
             //Montre les détails de la recette
             showDetails(recette){
                 console.log(recette)
-                this.router.navigate(['details',
+                this.router.navigate(['/details'],
                 {queryParams:recette},
-            ]);
+            );
             }
 
 
