@@ -4,6 +4,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  
+  <ion-list>
+      <ion-item ion-item *ngFor="let recette of Recettes">
+        <ion-avatar slot="start">
+          <img [src]="recette.picture">
+        </ion-avatar>
+        <ion-label>
+        <h2>{{recette.title}}</h2>
+        <p>{{recette.category}}</p>
+        <p>
+          <span *ngIf="recette.averageStar>=1">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
+        <ion-button color="primary" (click)="showDetails(recette)">
+          Voir les détails
+        </ion-button>
+      </ion-label>
+      </ion-item>
+  </ion-list>
 </ion-content>
