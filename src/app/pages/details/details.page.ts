@@ -24,6 +24,7 @@
     }
 
     //Ajoute la recette dans les favoris
+    // interogation du localhost 8100 qui redirect vers 8200 : error sur 8200 mais fonctionne usr 8100
     async addToFavoris (details : any){
       //Creation de la variable
       let ajouter : boolean = false;
