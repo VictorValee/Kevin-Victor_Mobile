@@ -18,7 +18,9 @@ export class HomePage implements OnInit {
             
             ) {
             
-            this.Recettes = this.firestore.collection("recette").valueChanges();}
+            this.Recettes = this.firestore.collection("recette").valueChanges();
+            
+        }
 
             
 

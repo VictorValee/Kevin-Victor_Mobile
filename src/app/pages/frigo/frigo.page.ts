@@ -1,5 +1,6 @@
-import { Ingredient } from './../../interfaces/ingredient';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 @Component({
@@ -8,45 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./frigo.page.scss'],
 })
 export class FrigoPage implements OnInit {
+    Ingredients: Observable<any[]>;
+  
 
-  Ingredients:any[];
 
-  constructor() {
+  constructor(public firestore:AngularFirestore) {
 
-    this.Ingredients=[{
-
-      title : " Banane",
-      category : "Fruit",
-      picture : ['assets/img/Ingredients/banane.jpg']
-      },
-      {
-      title : " Boeuf",
-      category : "Viande",
-      picture : ['assets/img/Ingredients/boeuf.jpg']
-      ,},
-      {
-        title : " Carotte",
-        category : "Légume",
-        picture : ['assets/img/Ingredients/carotte.jpg']
-        ,},
-
-      {
-        title : " Fraise",
-        category : "Fruit",
-        picture : ['assets/img/Ingredients/fraise.jpg']
-      ,}
-
-      
-    
-    
-    
-    
-    ]
-
+    this.Ingredients = this.firestore.collection("ingredient").valueChanges();
 
    }
 
-  ngOnInit() {
+  async ngOnInit() {
   }
 
 }
