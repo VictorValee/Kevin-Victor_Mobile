@@ -7,7 +7,7 @@
 <ion-content padding>
   
   <ion-list>
-      <ion-item ion-item *ngFor="let recette of Recettes">
+      <ion-item ion-item *ngFor="let recette of Recettes | async">
         <ion-avatar slot="start">
           <img [src]="recette.picture">
         </ion-avatar>
