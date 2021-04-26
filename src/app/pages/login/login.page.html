@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Connexion</ion-title>
+      <ion-title>Se connecter</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -27,7 +27,7 @@
             <p class="forgot" (click)="forgotPassword()">Mot de passe oublié ?</p>
         </ion-col>
         <ion-col size="12">
-            <ion-button [disabled]="isErrorMail || pass.trim().length < 5" expand="full" class="btnLogin" (click)="loginForm()">Connexion</ion-button>
+            <ion-button [disabled]="isErrorMail || pass.trim().length < 5" expand="full" class="btnLogin" (click)="loginForm()">Se connecter</ion-button>
         </ion-col>
     </ion-row>
     <p> <a routerLink="/register"> Vous n'avez pas de compte ? Inscription</a> </p>
