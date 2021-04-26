@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,6 +13,9 @@ export class ProfilPage implements OnInit {
 
   constructor(        
     private auth: AuthService,
+    public AfAuth:AngularFireAuth,
+    private router: Router
+
     ) { }
 
   ngOnInit() {
@@ -19,7 +24,9 @@ export class ProfilPage implements OnInit {
   logout(){
 
     //Retourne la fonction logout
-    return this.auth.logout();
+    this.AfAuth.signOut();
+    this.router.navigate(['/login'])
+
     
   }
 
