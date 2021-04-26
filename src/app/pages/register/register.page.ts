@@ -7,6 +7,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 import { AuthService } from '../../services/auth.service';
 import { UserRegister } from '../../interfaces/user-register';
+import { AngularFireAuth} from '@angular/fire/auth';
+
 
 
 @Component({
@@ -25,7 +27,8 @@ export class RegisterPage implements OnInit {
         private camera: Camera,
         private auth: AuthService,
         private toast: ToastController,
-        private loading: LoadingController
+        private loading: LoadingController,
+        public AfAuth:AngularFireAuth,
     ) {}
 
     ngOnInit() {}
@@ -41,6 +44,16 @@ export class RegisterPage implements OnInit {
     }
 
     async register() {
+        const load = await this.loading.create({
+            message: 'Inscription en cours...',
+        });
+        await load.present();
+        this.AfAuth.createUserWithEmailAndPassword(this.user.email,this.user.password);
+        await this.loading.dismiss();
+        this.router.navigate(['/login']);
+
+
+        /*
         const load = await this.loading.create({
             message: 'Please wait...',
         });
@@ -58,7 +71,7 @@ export class RegisterPage implements OnInit {
             });
             toast.present();
             await this.loading.dismiss();
-        })
+        })*/
     }
 
     uploadPicture() {

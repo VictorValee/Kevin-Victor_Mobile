@@ -8,6 +8,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { AuthService } from '../../services/auth.service';
 import { ForgotPasswordComponent } from '../../modals/forgot-password/forgot-password.component';
+import { AngularFireAuth} from '@angular/fire/auth';
 
 @Component({
     selector: 'app-login',
@@ -27,8 +28,20 @@ export class LoginPage implements OnInit {
         private platform: Platform,
         private storage: NativeStorage,
         private modal: ModalController,
-        private loading: LoadingController
-    ) {}
+        private loading: LoadingController,
+        public AfAuth:AngularFireAuth
+
+    ) {
+        this.AfAuth.authState.subscribe(auth =>{
+
+            if(!auth){
+
+            }else{
+                this.router.navigate(['/tabs'])
+            }
+
+        })
+    }
 
     async ngOnInit() {
         let token;
@@ -63,6 +76,14 @@ export class LoginPage implements OnInit {
             message: 'Connexion en cours...',
         });
         await load.present();
+        this.AfAuth.signInWithEmailAndPassword(this.email,this.pass);
+        await this.loading.dismiss();
+
+/*
+        const load = await this.loading.create({
+            message: 'Connexion en cours...',
+        });
+        await load.present();
         this.auth.login(this.email, this.pass).then(async(user: any) => {
             console.log(this.platform.platforms());
             if (this.platform.is("desktop")) {
@@ -79,7 +100,8 @@ export class LoginPage implements OnInit {
             this.pass = ''
             this.isErrorMail = true;
             await this.loading.dismiss();
-        })
+        })*/
     }
+    
 
 }
