@@ -7,5 +7,19 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Mon profil</ion-card-title>
+      <ion-card-subtitle>{{userID}}</ion-card-subtitle>
+      <ion-card-subtitle>{{email}}</ion-card-subtitle>
+    </ion-card-header>
     <ion-button (click)="logout()" expand="full" color="danger">Déconnexion</ion-button>
+
+    <ion-card-content>
+        En utilisant ce service,<br> vous acceptez les conditons générales d'utilisation et
+        <br>les conditions de protection des données personnelles
+        
+    </ion-card-content>
+
+  </ion-card>
 </ion-content>

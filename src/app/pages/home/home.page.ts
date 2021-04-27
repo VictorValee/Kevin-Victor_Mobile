@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
     selector: 'app-home',
@@ -15,10 +16,19 @@ export class HomePage implements OnInit {
         constructor(private router: Router, 
             private route: ActivatedRoute, 
             public firestore:AngularFirestore,
+            public AfAuth:AngularFireAuth
             
-            ) {
+            ){
+                this.AfAuth.authState.subscribe(auth =>{
+
+                    if(!auth){
+                      this.router.navigate(['/login'])
+                    }
+                  })
             
-            this.Recettes = this.firestore.collection("recette").valueChanges();}
+            this.Recettes = this.firestore.collection("recette").valueChanges();
+            
+        }
 
             
 

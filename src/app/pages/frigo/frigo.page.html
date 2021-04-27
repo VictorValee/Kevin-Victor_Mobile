@@ -9,9 +9,9 @@
 <ion-content padding>
   
   <ion-list>
-    <ion-item ion-item *ngFor="let ingredient of Ingredients">
+    <ion-item ion-item *ngFor="let ingredient of Ingredients | async">
         <ion-avatar slot="start">
-          <img [src]="ingredient.picture[0]">
+          <img [src]="ingredient.picture">
         </ion-avatar>
         <ion-label>
         <h2>{{ingredient.title}}</h2>
