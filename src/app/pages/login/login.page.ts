@@ -34,10 +34,11 @@ export class LoginPage implements OnInit {
     ) {
         this.AfAuth.authState.subscribe(auth =>{
 
-            if(!auth){
-
-            }else{
+            if(auth){
                 this.router.navigate(['/tabs'])
+            }else{
+                this.router.navigate(['/login'])
+
             }
 
         })
@@ -76,8 +77,9 @@ export class LoginPage implements OnInit {
             message: 'Connexion en cours...',
         });
         await load.present();
-        this.AfAuth.signInWithEmailAndPassword(this.email,this.pass);
+        this.AfAuth.signInWithEmailAndPassword(this.email,this.pass)
         await this.loading.dismiss();
+
 
 /*
         const load = await this.loading.create({

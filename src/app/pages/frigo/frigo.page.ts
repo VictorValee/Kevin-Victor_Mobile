@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -13,7 +15,17 @@ export class FrigoPage implements OnInit {
   
 
 
-  constructor(public firestore:AngularFirestore) {
+  constructor(public firestore:AngularFirestore,
+    public AfAuth:AngularFireAuth,
+    private router :Router
+    ) {
+
+    this.AfAuth.authState.subscribe(auth =>{
+
+      if(!auth){
+        this.router.navigate(['/login'])
+      }
+    })
 
     this.Ingredients = this.firestore.collection("ingredient").valueChanges();
 

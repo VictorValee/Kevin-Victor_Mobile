@@ -18,13 +18,22 @@ userId="";
 
   constructor(public route:ActivatedRoute, 
     private storage:NativeStorage,
-    public AfAuth:AngularFireAuth
+    public AfAuth:AngularFireAuth,
+    private router : Router
     ){
+      this.AfAuth.authState.subscribe(auth =>{
+
+        if(!auth){
+          this.router.navigate(['/login'])
+        }
+      })
+      
     this.route.queryParams.subscribe((data)=>{
       console.log(data);
       this.details = data;
     })
-    }
+    
+  }
    //Ajoute la recette dans les favoris
    addToFavoris(details : any){
         
