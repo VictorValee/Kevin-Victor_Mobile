@@ -41,7 +41,6 @@ userId="";
   }
    //Ajoute la recette dans les favoris
    addToFavoris(details : any){
-
     this.firestore.collection("favoris").add({
       id_utilisateur: this.userId,
       averageStar : details.averageStar,
