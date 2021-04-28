@@ -29,7 +29,15 @@ export class RegisterPage implements OnInit {
         private toast: ToastController,
         private loading: LoadingController,
         public AfAuth:AngularFireAuth,
-    ) {}
+    ) {
+        this.AfAuth.authState.subscribe(auth =>{
+
+            if(auth){
+                this.router.navigate(['/tabs'])
+            }
+
+        })
+    }
 
     ngOnInit() {}
 

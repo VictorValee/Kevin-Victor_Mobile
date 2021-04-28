@@ -4,6 +4,8 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { FavorisRecette } from '../../interfaces/favoris-recette';
 import { element } from 'protractor';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-details',
@@ -19,12 +21,15 @@ userId="";
   constructor(public route:ActivatedRoute, 
     private storage:NativeStorage,
     public AfAuth:AngularFireAuth,
-    private router : Router
+    private router : Router,
+    public firestore:AngularFirestore
     ){
       this.AfAuth.authState.subscribe(auth =>{
 
         if(!auth){
           this.router.navigate(['/login'])
+        }else{
+          this.userId=auth.uid;
         }
       })
       
@@ -36,6 +41,13 @@ userId="";
   }
    //Ajoute la recette dans les favoris
    addToFavoris(details : any){
+
+    this.firestore.collection("favoris").add({
+      id_utilisateur: this.userId,
+      id_recette : details
+    })
+    this.router.navigate(['/tabs/favoris'])
+
         
 
    }

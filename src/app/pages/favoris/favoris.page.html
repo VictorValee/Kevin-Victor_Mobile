@@ -4,24 +4,44 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content padding>
   
   <ion-list>
-      <ion-item ion-item *ngFor="let recette of Recettes">
+      <ion-item ion-item *ngFor="let f of Favoris | async">
         <ion-avatar slot="start">
-          <img [src]="recette.picture">
+          <img [src]="f.id_recette.picture">
         </ion-avatar>
         <ion-label>
-        <h2>{{recette.title}}</h2>
-        <p>{{recette.category}}</p>
+        <h2>{{f.id_recette.title}}</h2>
+        <p>{{f.id_recette.category}}</p>
         <p>
-          <span *ngIf="recette.averageStar>=1">
+          <span *ngIf="f.id_recette.averageStar>=1">
             <ion-icon class="iconYellow" name="star"></ion-icon>          
           </span>
-        <ion-button color="primary" (click)="showDetails(recette)">
-          Voir les détails
+
+          <span *ngIf="f.id_recette.averageStar>=2">
+            <ion-icon class="iconYellow"name="star"></ion-icon>          
+          </span>
+
+          <span *ngIf="f.id_recette.averageStar>=3">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
+
+          <span *ngIf="f.id_recette.averageStar>=4">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
+
+          <span *ngIf="f.id_recette.averageStar>=5">
+            <ion-icon class="iconYellow" name="star"></ion-icon>          
+          </span>
+        </p>
+        <ion-button color="danger" (click)="supFavoris(f.id_recette)">
+          <ion-icon name="heart"></ion-icon>
+          Retirer
         </ion-button>
       </ion-label>
       </ion-item>
   </ion-list>
 </ion-content>
+
