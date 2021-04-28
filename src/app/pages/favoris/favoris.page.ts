@@ -12,6 +12,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class FavorisPage implements OnInit {
 
   Favoris:Observable<any[]>;
+  userID='';
 
   constructor(public AfAuth:AngularFireAuth,
     private router :Router,
@@ -20,18 +21,19 @@ export class FavorisPage implements OnInit {
 
       if(!auth){
         this.router.navigate(['/login'])
+      }else{
+        this.userID=auth.uid;
       }
     })
     this.Favoris = this.firestore.collection("favoris").valueChanges();
-
-
    }
 
   ngOnInit() {
   }
 
-  supFavoris(id_recette : any){
-    return this.firestore.collection('favoris').doc(id_recette).delete()
+  supFavoris(favoris) : Promise<any>{
+    console.log(favoris);
+    return this.firestore.doc(favoris).delete()
   }
 
   

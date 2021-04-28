@@ -44,7 +44,11 @@ userId="";
 
     this.firestore.collection("favoris").add({
       id_utilisateur: this.userId,
-      id_recette : details
+      averageStar : details.averageStar,
+      title : details.title,
+      description : details.description,
+      picture : details.picture,
+      category : details.category
     })
     this.router.navigate(['/tabs/favoris'])
 
