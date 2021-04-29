@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
@@ -29,6 +29,7 @@ export class RegisterPage implements OnInit {
         private toast: ToastController,
         private loading: LoadingController,
         public AfAuth:AngularFireAuth,
+        private alertCtrl: AlertController
     ) {
         this.AfAuth.authState.subscribe(auth =>{
 
@@ -56,9 +57,22 @@ export class RegisterPage implements OnInit {
             message: 'Inscription en cours...',
         });
         await load.present();
+        if(this.user.password == this.user.confirm_password){
         this.AfAuth.createUserWithEmailAndPassword(this.user.email,this.user.password);
         await this.loading.dismiss();
         this.router.navigate(['/login']);
+        }else{
+            const alert = await this.alertCtrl.create({
+                cssClass: 'my-custom-class',
+                header: 'Mot de passe',
+                subHeader: '',
+                message: 'Les deux mots de passe ne sont pas les mêmes.',
+                buttons: ['OK']
+              });
+              await this.loading.dismiss();
+              await alert.present();
+        }
+    
 
 
         /*
