@@ -12,6 +12,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class HomePage implements OnInit {
 
     Recettes:Observable<any[]>;
+    userId="";
+
 
         constructor(private router: Router, 
             private route: ActivatedRoute, 
@@ -23,6 +25,9 @@ export class HomePage implements OnInit {
 
                     if(!auth){
                       this.router.navigate(['/login'])
+                    }else{
+                        this.userId=auth.uid;
+
                     }
                   })
             
@@ -39,6 +44,22 @@ export class HomePage implements OnInit {
                 {queryParams:recette},
             );
             }
+
+               //Ajoute la recette dans les favoris
+   addToFavoris(details : any){
+    this.firestore.collection("favoris").add({
+      id_utilisateur: this.userId,
+      averageStar : details.averageStar,
+      title : details.title,
+      description : details.description,
+      picture : details.picture,
+      category : details.category
+    })
+    this.router.navigate(['/tabs/favoris'])
+
+        
+
+   }
 
 
 

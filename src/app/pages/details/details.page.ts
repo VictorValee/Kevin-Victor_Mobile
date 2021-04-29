@@ -39,21 +39,7 @@ userId="";
     })
     
   }
-   //Ajoute la recette dans les favoris
-   addToFavoris(details : any){
-    this.firestore.collection("favoris").add({
-      id_utilisateur: this.userId,
-      averageStar : details.averageStar,
-      title : details.title,
-      description : details.description,
-      picture : details.picture,
-      category : details.category
-    })
-    this.router.navigate(['/tabs/favoris'])
 
-        
-
-   }
 
    
 

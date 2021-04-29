@@ -49,6 +49,13 @@ export class FavorisPage implements OnInit {
   ngOnInit() {
   }
 
+  showDetails(recette){
+    console.log(recette)
+    this.router.navigate(['/tabs/details'],
+    {queryParams:recette},
+);
+}
+
   async supFavoris(id) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',

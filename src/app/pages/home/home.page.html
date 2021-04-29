@@ -35,9 +35,15 @@
             <ion-icon class="iconYellow" name="star"></ion-icon>          
           </span>
         </p>
+        <ion-button color="primary" (click)="addToFavoris(recette)">
+          <ion-icon name="heart"></ion-icon>
+        </ion-button>
+        <br>
         <ion-button color="primary" (click)="showDetails(recette)">
           Voir les détails
         </ion-button>
+      
+        
       </ion-label>
       </ion-item>
   </ion-list>
