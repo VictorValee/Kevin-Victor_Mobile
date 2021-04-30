@@ -1,4 +1,4 @@
-package fr.imieparis.cda.application;
+package io.ionic.starter;
 
 import android.os.Bundle;
 
